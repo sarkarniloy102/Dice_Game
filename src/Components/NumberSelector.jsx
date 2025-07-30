@@ -40,6 +40,27 @@ const NumberSelectorContainer = styled.div`
         justify-content: end;
         
     }
+
+    /* responsive styling */
+     @media (max-width: 768px){
+     p{
+        font-size: 18px;
+        font-weight: 700;
+        display: flex;
+        justify-content: end;
+        
+       }
+     }
+      
+        @media (max-width: 480px){
+     p{
+        font-size: 13px;
+        font-weight: 700;
+        display: flex;
+        justify-content: end;
+        
+       }
+        }
 `
 
 const Box = styled.div`
@@ -53,4 +74,22 @@ const Box = styled.div`
     cursor: pointer;
     background-color: ${(props) => props.isSelected ? "black" : ' white'};
     color: ${(props) => props.isSelected ? "white" : "black"};
-`;
+
+
+/* responsive styling */
+     @media (max-width: 768px) {
+       height:42px;
+       width: 42px;
+       font-size: 18px;
+
+  
+    }
+
+     @media (max-width: 480px) {
+       height:22px;
+       width: 22px;
+       font-size: 12px;
+
+   
+    }
+`

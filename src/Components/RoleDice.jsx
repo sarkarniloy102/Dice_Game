@@ -41,4 +41,23 @@ const DiceContainer = styled.div`
         
     }
     
+     @media (max-width: 768px) {
+        .image{
+            width: 180px;
+        }
+         p{
+        font-size: 18px;
+        margin: 10px 0;
+    }
+     }
+     
+     @media (max-width: 480px) {
+        .image{
+            width: 90px;
+        }
+         p{
+        font-size: 14px;
+        margin: 10px 0;
+    }
+     }
 `;

@@ -105,4 +105,26 @@ padding: 25px;
         gap: 15px;
         margin: 10px 0;
     }
+
+    /* responsive styling */
+
+     @media (max-width: 768px) {
+        .top_section{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+         }
+    }
+     
+        @media (max-width: 480px) {
+        .top_section{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+         }
+    }
+
+    
 `

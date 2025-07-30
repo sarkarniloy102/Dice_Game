@@ -4,8 +4,8 @@ import { Button } from "../styled/Button";
 const StartGame = ({ toggle }) => {
     return (
         <Container>
-            <div>
-                <img src="/public/images/dices.png" alt="" />
+            <div className="image">
+                <img src="/images/dices.png" alt="" />
             </div>
 
 
@@ -32,6 +32,44 @@ const Container = styled.div`
         h1 {
             font-size: 96px;
             white-space: nowrap;
+        }
+    }
+
+     /*Responsive styling */
+    @media (max-width: 768px) {
+          
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        .image img {
+            width: 300px;
+        }
+
+        .content h1 {
+            font-size: 28px;
+        }
+
+        button {
+            font-size: 14px;
+            padding: 10px 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .content h1 {
+            font-size: 20px;
+        }
+
+        .image img {
+            width: 250px;
+           
+        }
+
+        button {
+            font-size: 12px;
+            padding: 8px 10px;
         }
     }
 
