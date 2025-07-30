@@ -2,16 +2,62 @@ import styled from "styled-components";
 import NumberSelector from "./NumberSelector";
 import TotalScore from "./TotalScore";
 import RoleDice from "./RoleDice";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 const GamePlay = () => {
+    // for number selector
+    const [selectNumber, setSelectNumber] = useState();
+    // for role dice
+    const [currentDice, setCurrentDice] = useState(4);
+
+    // for total score 
+    const [score, setScore] = useState(0);
+
+    const generateRandomNumber = (min, max) => {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+
+    const roleDice = () => {
+
+        if (!selectNumber) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                // icon: "error",
+                title: "You haven't selected any number"
+
+            });
+            return;
+        }
+        const randomNumber = generateRandomNumber(1, 7);
+        setCurrentDice(() => randomNumber);
+
+        if (selectNumber === randomNumber)
+            setScore((prev) => prev + randomNumber);
+        else
+            setScore((prev) => prev - 2);
+
+        setSelectNumber(undefined);
+    }
+
     return (
         <MainContainer>
             <div className="top_section">
-                <TotalScore></TotalScore>
-                <NumberSelector></NumberSelector>
+                <TotalScore score={score}></TotalScore>
+                <NumberSelector selectNumber={selectNumber} setSelectNumber={setSelectNumber}></NumberSelector>
             </div>
 
-            <RoleDice></RoleDice>
+            <RoleDice currentDice={currentDice} roleDice={roleDice}></RoleDice>
 
         </MainContainer>
     );
