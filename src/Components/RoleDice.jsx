@@ -34,6 +34,7 @@ const DiceContainer = styled.div`
 
     p{
         font-size: 24px;
+        margin: 10px 0;
     }
     .dice{
         cursor: pointer;

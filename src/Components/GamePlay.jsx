@@ -4,6 +4,7 @@ import TotalScore from "./TotalScore";
 import RoleDice from "./RoleDice";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { Button, OutlineButton } from "../styled/Button";
 
 const GamePlay = () => {
     // for number selector
@@ -50,6 +51,11 @@ const GamePlay = () => {
         setSelectNumber(undefined);
     }
 
+    // to reset total score
+    const resetScore = () => {
+        setScore(0);
+    }
+
     return (
         <MainContainer>
             <div className="top_section">
@@ -58,6 +64,12 @@ const GamePlay = () => {
             </div>
 
             <RoleDice currentDice={currentDice} roleDice={roleDice}></RoleDice>
+            <div className="btns">
+                <OutlineButton onClick={() => resetScore()}>Reset</OutlineButton>
+                <Button>Show Rules</Button>
+            </div>
+
+
 
         </MainContainer>
     );
@@ -71,5 +83,13 @@ padding-top: 70px;
         display: flex;
         justify-content: space-around;
         align-items: end;
+    }
+    .btns{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin: 10px 0;
     }
 `
