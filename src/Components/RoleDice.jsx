@@ -16,7 +16,7 @@ const RoleDice = ({ currentDice, roleDice }) => {
     return (
         <DiceContainer>
             <div className="dice" onClick={roleDice}>
-                <img src={`/images/dice_${currentDice}.png`} alt="" />
+                <img className="image" src={`/images/dice_${currentDice}.png`} alt="" />
             </div>
             <p>Click on Dice to roll</p>
         </DiceContainer>
@@ -27,7 +27,7 @@ const RoleDice = ({ currentDice, roleDice }) => {
 export default RoleDice;
 
 const DiceContainer = styled.div`
-    margin-top: 48px;
+    margin-top: 28px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,5 +38,11 @@ const DiceContainer = styled.div`
     }
     .dice{
         cursor: pointer;
+        
+    }
+    .image{
+       width: 160px;
+       height: 160px;
+
     }
 `;

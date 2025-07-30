@@ -43,8 +43,8 @@ const NumberSelectorContainer = styled.div`
 `
 
 const Box = styled.div`
-    height: 72px;
-    width: 72px;
+    height: 62px;
+    width: 62px;
     border: 1px solid black;
     display: grid;
     place-items:center;

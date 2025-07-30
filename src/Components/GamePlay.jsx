@@ -5,6 +5,7 @@ import RoleDice from "./RoleDice";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { Button, OutlineButton } from "../styled/Button";
+import Rules from "./Rules";
 
 const GamePlay = () => {
     // for number selector
@@ -14,6 +15,10 @@ const GamePlay = () => {
 
     // for total score 
     const [score, setScore] = useState(0);
+
+    // for show rules
+    const [showRules, setShowRules] = useState(false);
+
 
     const generateRandomNumber = (min, max) => {
         return Math.floor(Math.random() * (max - min) + min);
@@ -66,8 +71,12 @@ const GamePlay = () => {
             <RoleDice currentDice={currentDice} roleDice={roleDice}></RoleDice>
             <div className="btns">
                 <OutlineButton onClick={() => resetScore()}>Reset</OutlineButton>
-                <Button>Show Rules</Button>
+                <Button
+                    onClick={() => setShowRules(prev => !prev)}
+                >{showRules ? "Hide" : "Show Rules"}</Button>
             </div>
+
+            {showRules && <Rules></Rules>}
 
 
 
@@ -78,7 +87,7 @@ const GamePlay = () => {
 export default GamePlay;
 
 const MainContainer = styled.div`
-padding-top: 70px;
+padding: 25px;
     .top_section{
         display: flex;
         justify-content: space-around;
