@@ -40,9 +40,5 @@ const DiceContainer = styled.div`
         cursor: pointer;
         
     }
-    .image{
-       width: 160px;
-       height: 160px;
-
-    }
+    
 `;

@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import { Button, OutlineButton } from "../styled/Button";
 import Rules from "./Rules";
 
-const GamePlay = () => {
+const GamePlay = ({ toggle }) => {
     // for number selector
     const [selectNumber, setSelectNumber] = useState();
     // for role dice
@@ -20,6 +20,8 @@ const GamePlay = () => {
     const [showRules, setShowRules] = useState(false);
 
 
+
+    // random number generate
     const generateRandomNumber = (min, max) => {
         return Math.floor(Math.random() * (max - min) + min);
     }
@@ -71,9 +73,11 @@ const GamePlay = () => {
             <RoleDice currentDice={currentDice} roleDice={roleDice}></RoleDice>
             <div className="btns">
                 <OutlineButton onClick={() => resetScore()}>Reset</OutlineButton>
+                <OutlineButton onClick={toggle}>Back Home</OutlineButton>
                 <Button
                     onClick={() => setShowRules(prev => !prev)}
                 >{showRules ? "Hide" : "Show Rules"}</Button>
+
             </div>
 
             {showRules && <Rules></Rules>}
